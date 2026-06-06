@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #020813; -fx-border-color: #00e5ff; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Line startX="20" startY="20" endX="60" endY="20" stroke="#00e5ff" strokeWidth="3"/>
+        <Line startX="20" startY="20" endX="20" endY="60" stroke="#00e5ff" strokeWidth="3"/>
+        <Line startX="780" startY="20" endX="740" endY="20" stroke="#00e5ff" strokeWidth="3"/>
+        <Line startX="780" startY="20" endX="780" endY="60" stroke="#00e5ff" strokeWidth="3"/>
+        <Line startX="20" startY="580" endX="60" endY="580" stroke="#00e5ff" strokeWidth="3"/>
+        <Line startX="20" startY="580" endX="20" endY="540" stroke="#00e5ff" strokeWidth="3"/>
+        <Line startX="780" startY="580" endX="740" endY="580" stroke="#00e5ff" strokeWidth="3"/>
+        <Line startX="780" startY="580" endX="780" endY="540" stroke="#00e5ff" strokeWidth="3"/>
+        <Line startX="400" startY="100" endX="400" endY="500" stroke="#00fa9a" opacity="0.3" strokeWidth="1"/>
+        <Line startX="200" startY="300" endX="600" endY="300" stroke="#00fa9a" opacity="0.3" strokeWidth="1"/>
+        <Circle fill="TRANSPARENT" layoutX="400.0" layoutY="300.0" radius="180.0" stroke="#00fa9a" opacity="0.2" strokeWidth="1.5" style="-fx-stroke-dash-array: 10 10;"/>
+        <Circle fill="TRANSPARENT" layoutX="400.0" layoutY="300.0" radius="120.0" stroke="#00fa9a" opacity="0.5" strokeWidth="2.0" />
+        <Circle fill="TRANSPARENT" layoutX="400.0" layoutY="300.0" radius="60.0" stroke="#ff0844" opacity="0.4" strokeWidth="1.0" />
+        <Circle fill="#ff0844" layoutX="400.0" layoutY="300.0" radius="4.0" />
+        <Line fx:id="scanLine" startX="220" startY="120" endX="580" endY="120" stroke="#00e5ff" opacity="0.6" strokeWidth="3"/>
+        <Label fx:id="recLabel" layoutX="40.0" layoutY="40.0" style="-fx-font-family: Consolas; -fx-font-size: 24px; -fx-font-weight: bold;" text="• REC" textFill="#ff0844" />
+        <Label layoutX="40.0" layoutY="75.0" style="-fx-font-family: Consolas; -fx-font-size: 14px;" text="UPLINK: SECURE (AES-256)" textFill="#8892b0" />
+        <Label layoutX="580.0" layoutY="40.0" style="-fx-font-family: Consolas; -fx-font-size: 20px; -fx-font-weight: bold;" text="BATTERY: 84%" textFill="#00fa9a" />
+        <Label layoutX="580.0" layoutY="70.0" style="-fx-font-family: Consolas; -fx-font-size: 14px;" text="SIGNAL: █████" textFill="#00e5ff" />
+        <Label fx:id="altLabel" layoutX="40.0" layoutY="490.0" style="-fx-font-family: Consolas; -fx-font-size: 20px; -fx-font-weight: bold;" text="ALT: 1450.00 FT" textFill="#00fa9a" />
+        <Label fx:id="windLabel" layoutX="40.0" layoutY="520.0" style="-fx-font-family: Consolas; -fx-font-size: 14px;" text="WIND: 12 KNOTS NE" textFill="#00e5ff" />
+        <Label fx:id="coordLabel" layoutX="520.0" layoutY="490.0" style="-fx-font-family: Consolas; -fx-font-size: 20px; -fx-font-weight: bold;" text="POS: 23.8103, 90.4125" textFill="#00fa9a" />
+        <Label fx:id="targetLabel" layoutX="520.0" layoutY="520.0" style="-fx-font-family: Consolas; -fx-font-size: 16px; -fx-font-weight: bold;" text="TARGET: ACQUIRING..." textFill="#ff0844" />
+        <Label layoutX="330.0" layoutY="550.0" style="-fx-font-family: Consolas; -fx-font-size: 14px; -fx-background-color: #ff0844; -fx-padding: 3 8 3 8; -fx-background-radius: 3;" text="THERMAL: ACTIVE" textFill="#ffffff" />
+    </children>
+</AnchorPane>

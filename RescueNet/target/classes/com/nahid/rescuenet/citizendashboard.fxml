@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nahid.rescuenet.controller.CitizenController">
+    <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefWidth="280.0" minWidth="280.0" styleClass="sidebar-citizen" spacing="20" alignment="TOP_CENTER">
+            <Label text="RescueNet" styleClass="citizen-title" style="-fx-padding: 35 0 0 0;" />
+            <Label text="CIVILIAN PORTAL" styleClass="subtitle-text" />
+            <VBox spacing="15" alignment="CENTER" style="-fx-padding: 40 25 0 25;">
+                <Button text="Safety Profile" styleClass="action-btn-green" onAction="#showProfile" maxWidth="1.7976931348623157E308" />
+                <Button text="Live Location Link" styleClass="action-btn-green" onAction="#showLocation" maxWidth="1.7976931348623157E308" />
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER" style="-fx-padding: 0 25 45 25;">
+                <Button text="SECURE LOGOUT" styleClass="logout-btn" onAction="#logout" maxWidth="1.7976931348623157E308" />
+            </VBox>
+        </VBox>
+        <VBox styleClass="root" HBox.hgrow="ALWAYS" spacing="20" style="-fx-padding: 30;">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="Personal Safety Radar" styleClass="citizen-title" />
+                    <Label fx:id="welcomeLabel" styleClass="subtitle-text" />
+                </VBox>
+                <Button fx:id="sosBtn" text="🚨 SOS PANIC" styleClass="sos-btn" onAction="#sendSOS" minWidth="200.0" />
+            </HBox>
+            <HBox spacing="25">
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Requests Generated" styleClass="stat-label"/>
+                    <Label fx:id="totalRequestsLabel" styleClass="stat-number" style="-fx-text-fill:#00fa9a;"/>
+                </VBox>
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Active Rescues" styleClass="stat-label"/>
+                    <Label fx:id="pendingLabel" styleClass="stat-number" style="-fx-text-fill:#ffb199;"/>
+                </VBox>
+            </HBox>
+            <VBox spacing="15" styleClass="stat-card-glass">
+                <Label text="Emergency Dispatch Protocol" styleClass="stat-label" style="-fx-text-fill:#00e5ff;"/>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <TextField fx:id="locationInputField" promptText="Enter district or exact address (e.g., Road 14, Uttara, Dhaka)..." styleClass="text-field" HBox.hgrow="ALWAYS" />
+                </HBox>
+                <HBox spacing="15">
+                    <Button text="Deploy Police" styleClass="btn-police" onAction="#requestPolice" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                    <Button text="Dispatch Ambulance" styleClass="btn-ambulance" onAction="#requestAmbulance" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                    <Button text="Call Fire Service" styleClass="btn-fire" onAction="#requestFire" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                </HBox>
+            </VBox>
+            <Label text="Live Tracking Log" styleClass="stat-label" />
+            <TableView fx:id="historyTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idCol" text="Tracker ID" prefWidth="100"/>
+                    <TableColumn fx:id="typeCol" text="Emergency Force" prefWidth="150"/>
+                    <TableColumn fx:id="locationCol" text="Coordinate Location" prefWidth="350"/>
+                    <TableColumn fx:id="statusCol" text="Live Status" prefWidth="120"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </HBox>
+</AnchorPane>

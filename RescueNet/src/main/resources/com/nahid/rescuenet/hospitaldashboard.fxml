@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nahid.rescuenet.controller.HospitalController">
+    <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefWidth="280.0" minWidth="280.0" styleClass="sidebar-police" spacing="20" alignment="TOP_CENTER">
+            <Label text="RescueNet" styleClass="police-title" style="-fx-padding: 35 0 0 0;" />
+            <Label text="HOSPITAL ER WARD" styleClass="subtitle-text" />
+            <VBox spacing="15" alignment="CENTER" style="-fx-padding: 40 25 0 25;">
+                <Button text="Fetch NID Med-History" styleClass="action-btn-cyan" onAction="#viewMedicalHistory" maxWidth="1.7976931348623157E308" />
+                <Button text="Request Blood Units" styleClass="action-btn-cyan" onAction="#requestBlood" maxWidth="1.7976931348623157E308" />
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER" style="-fx-padding: 0 25 45 25;">
+                <Button text="SECURE LOGOUT" styleClass="logout-btn" onAction="#logout" maxWidth="1.7976931348623157E308" />
+            </VBox>
+        </VBox>
+        <VBox styleClass="root" HBox.hgrow="ALWAYS" spacing="20" style="-fx-padding: 30;">
+            <Label text="Emergency Room (ER) Management" styleClass="police-title" />
+            <Label fx:id="doctorNameLabel" styleClass="subtitle-text" />
+            <HBox spacing="30">
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Pending ER Arrivals" styleClass="stat-label"/>
+                    <Label fx:id="incomingLabel" styleClass="stat-number" style="-fx-text-fill:#ff0844;"/>
+                </VBox>
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Available ICU Beds" styleClass="stat-label"/>
+                    <Label fx:id="icuLabel" styleClass="stat-number" style="-fx-text-fill:#00e5ff;"/>
+                </VBox>
+            </HBox>
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Button text="Admit to ER / ICU" styleClass="action-btn-cyan" onAction="#admitPatient" />
+                <Button text="Discharge Patient" styleClass="action-btn-green" onAction="#dischargePatient" />
+            </HBox>
+            <TableView fx:id="emergencyTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idCol" text="Patient ID" prefWidth="80"/>
+                    <TableColumn fx:id="typeCol" text="Source" prefWidth="120"/>
+                    <TableColumn fx:id="locationCol" text="Current Location" prefWidth="300"/>
+                    <TableColumn fx:id="emailCol" text="Patient Email" prefWidth="200"/>
+                    <TableColumn fx:id="guardianCol" text="Emergency Contact" prefWidth="150"/>
+                    <TableColumn fx:id="statusCol" text="Ward Status" prefWidth="120"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </HBox>
+</AnchorPane>

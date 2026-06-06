@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nahid.rescuenet.controller.FireController">
+    <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefWidth="280.0" minWidth="280.0" styleClass="sidebar-police" spacing="20" alignment="TOP_CENTER">
+            <Label text="RescueNet" styleClass="police-title" style="-fx-padding: 35 0 0 0;" />
+            <Label text="FIRE COMMAND" styleClass="subtitle-text" style="-fx-font-size: 14px;" />
+            <VBox spacing="15" alignment="CENTER" style="-fx-padding: 40 25 0 25;">
+                <Button text="Deploy Hazmat Team" styleClass="action-btn-cyan" onAction="#deployHazmat" maxWidth="1.7976931348623157E308" />
+                <Button text="Scan Local Hydrants" styleClass="action-btn-cyan" onAction="#viewHydrantMap" maxWidth="1.7976931348623157E308" />
+                <Button text="Request Aerial Support" styleClass="action-btn-cyan" onAction="#requestHeli" maxWidth="1.7976931348623157E308" />
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER" style="-fx-padding: 0 25 45 25;">
+                <Button text="SECURE LOGOUT" styleClass="logout-btn" onAction="#logout" maxWidth="1.7976931348623157E308" />
+            </VBox>
+        </VBox>
+        <VBox styleClass="root" HBox.hgrow="ALWAYS" spacing="20" style="-fx-padding: 30;">
+            <Label text="Central Fire Dispatch Engine" styleClass="police-title" />
+            <Label fx:id="commanderNameLabel" styleClass="subtitle-text" />
+            <HBox spacing="30">
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Active Fire Alerts" styleClass="stat-label"/>
+                    <Label fx:id="activeFiresLabel" styleClass="stat-number" style="-fx-text-fill:#ff5722;"/>
+                </VBox>
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Fire Engines Deployed" styleClass="stat-label"/>
+                    <Label fx:id="deployedLabel" styleClass="stat-number" style="-fx-text-fill:#ffeb3b;"/>
+                </VBox>
+            </HBox>
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Button text="Deploy Fire Engine" styleClass="action-btn-cyan" onAction="#deployFireEngine" />
+                <Button text="Mark Fire Extinguished" styleClass="action-btn-green" onAction="#markExtinguished" />
+            </HBox>
+            <TableView fx:id="emergencyTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idCol" text="Incident ID" prefWidth="80"/>
+                    <TableColumn fx:id="typeCol" text="Threat Level" prefWidth="120"/>
+                    <TableColumn fx:id="structureCol" text="Facility Type" prefWidth="150"/>
+                    <TableColumn fx:id="locationCol" text="Fire Location" prefWidth="250"/>
+                    <TableColumn fx:id="windCol" text="Spread Risk (Wind)" prefWidth="150"/>
+                    <TableColumn fx:id="statusCol" text="Engine Status" prefWidth="120"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </HBox>
+</AnchorPane>

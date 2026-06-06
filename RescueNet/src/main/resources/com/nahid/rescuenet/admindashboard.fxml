@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nahid.rescuenet.controller.AdminController">
+    <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefWidth="280.0" minWidth="280.0" styleClass="sidebar-police" spacing="20" alignment="TOP_CENTER">
+            <Label text="RescueNet" styleClass="police-title" style="-fx-padding: 35 0 0 0;" />
+            <Label text="SUPER ADMIN PANEL" styleClass="subtitle-text" />
+
+            <VBox spacing="15" alignment="CENTER" style="-fx-padding: 40 25 0 25;">
+                <Button text="System Audit Logs" styleClass="action-btn-cyan" onAction="#viewAuditLogs" maxWidth="1.7976931348623157E308" />
+                <Button text="Database Backup" styleClass="action-btn-cyan" onAction="#backupDatabase" maxWidth="1.7976931348623157E308" />
+                <Button text="Global Broadcast Alert" styleClass="action-btn-cyan" onAction="#globalBroadcast" maxWidth="1.7976931348623157E308" />
+                <Button text="System Lockdown Protocol" style="-fx-background-color: transparent; -fx-border-color: #ff0844; -fx-text-fill: #ff0844; -fx-font-weight: bold; -fx-pref-height: 40; -fx-border-radius: 5;" onAction="#lockdownSystem" maxWidth="1.7976931348623157E308" />
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER" style="-fx-padding: 0 25 45 25;">
+                <Button text="SYSTEM LOGOUT" styleClass="logout-btn" onAction="#logout" maxWidth="1.7976931348623157E308" />
+            </VBox>
+        </VBox>
+
+        <VBox styleClass="root" HBox.hgrow="ALWAYS" spacing="15" style="-fx-padding: 20 30 20 30;">
+            <Label text="Central Administration Terminal" styleClass="police-title" />
+            <Label fx:id="adminNameLabel" styleClass="subtitle-text" />
+
+            <HBox spacing="20">
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Total System Users" styleClass="stat-label"/>
+                    <Label fx:id="totalUsersLabel" styleClass="stat-number" style="-fx-text-fill: #00e5ff;"/>
+                </VBox>
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Active Global Crises" styleClass="stat-label"/>
+                    <Label fx:id="activeCrisesLabel" styleClass="stat-number" style="-fx-text-fill: #ff0844;"/>
+                </VBox>
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS">
+                    <Label text="Total Resolved Cases" styleClass="stat-label"/>
+                    <Label fx:id="resolvedCasesLabel" styleClass="stat-number" style="-fx-text-fill: #00fa9a;"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="20">
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS" style="-fx-border-color: #3498db; -fx-border-width: 0 0 0 3;">
+                    <Label text="Police Units Deployed" styleClass="stat-label"/>
+                    <Label fx:id="policeUnitsLabel" styleClass="stat-number" style="-fx-text-fill: #3498db; -fx-font-size: 26px;"/>
+                </VBox>
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS" style="-fx-border-color: #e67e22; -fx-border-width: 0 0 0 3;">
+                    <Label text="Fire Engines Active" styleClass="stat-label"/>
+                    <Label fx:id="fireUnitsLabel" styleClass="stat-number" style="-fx-text-fill: #e67e22; -fx-font-size: 26px;"/>
+                </VBox>
+                <VBox styleClass="stat-card-glass" HBox.hgrow="ALWAYS" style="-fx-border-color: #9b59b6; -fx-border-width: 0 0 0 3;">
+                    <Label text="EMS/Ambulance Active" styleClass="stat-label"/>
+                    <Label fx:id="emsUnitsLabel" styleClass="stat-number" style="-fx-text-fill: #9b59b6; -fx-font-size: 26px;"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-padding: 10 0 5 0;">
+                <Button text="Force Resolve Emergency" styleClass="action-btn-green" onAction="#forceResolve" />
+                <Button text="Purge Fake/Spam Request" style="-fx-background-color: #ff0844; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-height: 35; -fx-padding: 0 20 0 20; -fx-background-radius: 5;" onAction="#deleteRequest" />
+            </HBox>
+
+            <TableView fx:id="emergencyTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idCol" text="Case ID" prefWidth="80"/>
+                    <TableColumn fx:id="typeCol" text="Service Type" prefWidth="120"/>
+                    <TableColumn fx:id="locationCol" text="Incident Location" prefWidth="300"/>
+                    <TableColumn fx:id="phoneCol" text="Contact Number" prefWidth="150"/>
+                    <TableColumn fx:id="statusCol" text="Global Status" prefWidth="150"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </HBox>
+</AnchorPane>
